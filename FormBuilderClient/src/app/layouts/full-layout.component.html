@@ -1,0 +1,97 @@
+<header class="app-header navbar">
+    <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+    <a class="navbar-brand" href="#"></a>
+    <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item">
+            <a class="nav-link navbar-toggler" href="#" appSidebarToggler>&#9776;</a>
+        </li>
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">Dashboard</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
+            <a href class="nav-link dropdown-toggle" dropdownToggle (click)="false">
+                <img src="assets/img/favicon.png" class="img-avatar" alt="admin@bootstrapmaster.com">
+                <span class="d-md-down-none">admin</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>
+                <div class="divider"></div>
+                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+            </div>
+        </li>
+        <li class="nav-item d-md-down-none">
+        </li>
+    </ul>
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+                </li>
+                <li class="divider"></li>
+                <li class="nav-title">
+                    UI Elements
+                </li>
+                <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+                    <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="fa fa-pencil-square-o"></i>Components</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/userinfo']"><i class="fa fa-plus"></i> User Info</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="divider"></li>
+
+                <li class="nav-item nav-dropdown" appNavDropdown>
+                    <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-star"></i> Pages</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/pages/login']"><i class="icon-star"></i> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/pages/register']"><i class="icon-star"></i> Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/pages/404']"><i class="icon-star"></i> Error 404</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/pages/500']"><i class="icon-star"></i> Error 500</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <app-breadcrumbs></app-breadcrumbs>
+            </div>
+
+        </ol>
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+
+
+</div>
+
+<footer class="app-footer">
+    <a href="">Form Builder</a> &copy; 2017 All Right Reserved.
+    <span class="float-right">Powered by <a href="">CodeSquare</a></span>
+</footer>
